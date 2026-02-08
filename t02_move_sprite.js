@@ -9,6 +9,16 @@
 /*******************************************************/
 function setup() {
 	console.log("setup: ");
+	cnv = new Canvas(windowWidth, windowHeight);
+
+ 	test = new Sprite(0.5, 0.5, 250, 500, 'd');
+
+	test.color = 'cyan';
+
+	test.rotationSpeed = -2;
+
+	test.vel.y = 2;
+
 
 }
 	
@@ -16,7 +26,7 @@ function setup() {
 // draw()
 /*******************************************************/
 function draw() {
-	
+	background('gray');
 }
 
 /*******************************************************/

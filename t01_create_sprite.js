@@ -10,14 +10,25 @@
 function setup() {
 	console.log("setup: ");
 
+	cnv = new Canvas(windowWidth, windowHeight);
+
+ test = new Sprite(0.5, 0.5, 250, 500, 'd');
+
+test.color = 'cyan';
 }
+
+
 	
+
 /*******************************************************/
 // draw()
 /*******************************************************/
 function draw() {
-	
+	background('gray');
 }
+
+
+
 
 /*******************************************************/
 //  END OF APP
