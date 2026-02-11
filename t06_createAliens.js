@@ -15,21 +15,26 @@ function setup() {
 
 	createWalls();
 
-	for (i = 0; i < 100; i++) {
-  	alien = new Sprite(width / 2, height / 2, 50, 50, 'd');
-  	alien.vel.x = random();
-  	alien.vel.y = random();
-  	alien.bounciness = 1;
-  	alien.friction = 0;
-	const VELARRAY = [-1, 1];
-	randNum = random(4, 7) * random(VELARRAY);
+	for (let i = 0; i < 100; i++) {
+  let alien = new Sprite(width / 2, height / 2, 50, 50, 'd');
+  
+  const VELARRAY = [-1, 1];
 
+  let directionX = VELARRAY[Math.floor(Math.random() * VELARRAY.length)];
+  let directionY = VELARRAY[Math.floor(Math.random() * VELARRAY.length)];
+  let speedX = random(4, 7) * directionX;
+  let speedY = random(4, 7) * directionY;
+
+  alien.vel.x = speedX;
+  alien.vel.y = speedY;
+  alien.bounciness = 1;
+  alien.friction = 0;
 }
 
 	ball_1 = new Sprite(width / 2, height / 2, 50, 'd');
 	ball_1.color = 'cyan';
 	ball_1.vel.x = 2;
-	ball_1.bounciness = 100;
+	ball_1.bounciness = 10000;
 	ball_1.friction = 0;
 	ball_1.drag = 0;
 }
