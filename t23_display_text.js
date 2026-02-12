@@ -1,6 +1,6 @@
 /*******************************************************/
-// P5.play: t22_keyboard
-// Move sprite via keyboard
+// P5.play: t23_display_text
+// 
 // Written by ???
 /*******************************************************/
 	
@@ -8,12 +8,8 @@
 // setup()
 /*******************************************************/
 function setup() {
-	console.log("setup: ");
-	cnv = new Canvas(windowWidth, windowHeight);
-
- 	testOne = new Sprite(50, 50, 250, 500, 'd');
-	testOne.color = 'cyan';
-	testOne.rotationSpeed = -2;
+    console.log("setup: ");
+    cnv = new Canvas(windowWidth, windowHeight);
 }
 	
 /*******************************************************/
@@ -23,24 +19,27 @@ function draw() {
 
 	background('gray');
 
+    let totalSeconds = Math.floor(millis() / 1000);
 
-	if (kb.pressing('left')) {
-    testOne.vel.x = -5;   // move left
-}
-else if (kb.pressing('right')) {
-    testOne.vel.x = 5;    // move right
-}
-else if (kb.pressing('up')) {
-    testOne.vel.y = -5;   // move up
-}
-else if (kb.pressing('down')) {
-    testOne.vel.y = 5;    // move down
-}
-else {
-    testOne.vel.x = 0;    // stop when no key is pressed
-}
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
 
+     if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
 
+     let timer = minutes + ":" + seconds;
+
+    textAlign(CENTER, CENTER);
+    textSize(120);
+    fill('yellow');
+    stroke('black');
+    strokeWeight(6);
+
+    text(timer, width / 2, height / 2);
 }
 
 /*******************************************************/
