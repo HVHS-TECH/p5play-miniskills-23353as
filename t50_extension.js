@@ -1,7 +1,7 @@
 /*******************************************************/
-// P5.play: t50_extension
-// Extension tasks
-// Written by ??
+// P5.play: t05_createWalls
+// Create walls around the canvas
+// Written by ???
 /*******************************************************/
 	
 /*******************************************************/
@@ -9,14 +9,50 @@
 /*******************************************************/
 function setup() {
 	console.log("setup: ");
+	cnv = new Canvas(windowWidth, windowHeight);
 
+	world.gravity.y = 10;
+
+	createWalls();
+
+	ball_1 = new Sprite(width / 2, height / 2, 50, 'd');
+	ball_1.color = 'cyan';
+	ball_1.vel.x = 2;
+	ball_1.bounciness = 100;
+	ball_1.friction = 0;
+	ball_1.drag = 0;
+}
+
+function createWalls() {
+	wallLH = new Sprite(0, height / 2, 8, height, 'k');
+	wallLH.color = 'red';
+
+
+	wallRH = new Sprite(width, height / 2, 8, height, 'k');
+	wallRH.color = 'red';
+
+
+	wallTop = new Sprite(width / 2, 0, width, 8, 'k');
+	wallTop.color = 'red';
+
+
+	wallBot = new Sprite(width / 2, height, width, 8, 'k');
+	wallBot.color = 'red';
 }
 	
 /*******************************************************/
 // draw()
 /*******************************************************/
 function draw() {
-	
+		background('gray');
+
+			ball_1.moveTowards(mouseX, mouseY, 1);
+
+			if (mouse.presses()) {
+
+			ball_1.moveTo(xPos, yPos, n);
+
+}
 }
 
 /*******************************************************/
